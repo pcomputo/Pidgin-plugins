@@ -403,12 +403,12 @@ static PurplePluginInfo info = {
 
 	"Sending Maniac",
 	"This helps you send varoius chat entities.",
-	"Pooja Ahuja <ahuja.pooja22@gmail.com>", /* correct author */
+	"Pooja Ahuja <ahuja.pooja22@gmail.com>",        /*author */
 	"http://ahujapooja.com",
 
 
 	plugin_load,
-	NULL,                                  /**< unload */
+	NULL,                                           /**< unload */
 	NULL,                                           /**< destroy */
 	NULL,                                           /**< ui_info */
 	NULL,                                           /**< extra_info */

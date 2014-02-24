@@ -385,8 +385,6 @@ plugin_load (PurplePlugin * plugin)
 	return TRUE;
 }
 
-/* For specific notes on the meanings of each of these members, consult the C Plugin Howto
- * on the website. */
 static PurplePluginInfo info = {
 	PURPLE_PLUGIN_MAGIC,
 	PURPLE_MAJOR_VERSION,

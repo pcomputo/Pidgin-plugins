@@ -44,7 +44,7 @@ send_online_buddy_cb (PurpleBlistNode *cnode, gpointer data)
 	purple_debug_info("sending_maniac", "The group selected is: %s", groupname);
 
    buddy = (PurpleBuddy *)cnode;
-	purple_debug_info("sending_maniac", "Isnide plugin_action_test_cb");
+	purple_debug_info("sending_maniac", "Inside send_online_buddy_cb");
 	receiver = purple_buddy_get_name(buddy); 
 	purple_debug_info("sending_maniac", "Receiver name: %s", receiver);
 	account = purple_buddy_get_account(buddy);
@@ -72,7 +72,6 @@ send_online_buddy_cb (PurpleBlistNode *cnode, gpointer data)
        }
 	}
 
-	/*TODO Make buddy names alphabetic*/
    gname = purple_group_get_name(g);
 	total = purple_counting_node_get_online_count(PURPLE_COUNTING_NODE(g));;
    purple_debug_info("sending_maniac", "%s (%d): \n",gname, total);
@@ -218,7 +217,7 @@ send_group_list_cb (PurpleBlistNode *cnode, gpointer data)
 } 
 
 static void
-plugin_action_test_cb (PurpleBlistNode *cnode, gpointer data) //PurplePluginAction *action
+send_buddy_list_cb (PurpleBlistNode *cnode, gpointer data) 
 {
 	PurplePlugin *plugin = (PurplePlugin *)data;
 	PurpleConnection *gc;
@@ -238,7 +237,7 @@ plugin_action_test_cb (PurpleBlistNode *cnode, gpointer data) //PurplePluginActi
 	purple_debug_info("sending_maniac", "The group selected is: %s", groupname);
 
    buddy = (PurpleBuddy *)cnode;
-	purple_debug_info("sending_maniac", "Isnide plugin_action_test_cb");
+	purple_debug_info("sending_maniac", "Isnide send_buddy_list_cb");
 	receiver = purple_buddy_get_name(buddy); 
 	purple_debug_info("sending_maniac", "Receiver name: %s", receiver);
 	account = purple_buddy_get_account(buddy);
@@ -344,7 +343,7 @@ extended_menu_cb(PurpleBlistNode *node, GList **menu, gpointer data)
 		group_name = purple_group_get_name((PurpleGroup *)group);
 
 		action_submenu_1 = purple_menu_action_new(group_name,
-		                 PURPLE_CALLBACK(plugin_action_test_cb),
+		                 PURPLE_CALLBACK(send_buddy_list_cb),
 		                 group, NULL); 
 		submenu_1 = g_list_append (submenu_1, action_submenu_1);
 

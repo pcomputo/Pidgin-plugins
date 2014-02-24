@@ -265,7 +265,6 @@ send_buddy_list_cb (PurpleBlistNode *cnode, gpointer data)
        }
 	}
 
-	/*TODO Make buddy names alphabetic*/
    gname = purple_group_get_name(g);
 	total = purple_counting_node_get_current_size(PURPLE_COUNTING_NODE(g));
    purple_debug_info("sending_maniac", "%s (%d): \n",gname, total);
@@ -330,7 +329,7 @@ extended_menu_cb(PurpleBlistNode *node, GList **menu, gpointer data)
 	GList *submenu = NULL, *submenu_1 = NULL, *submenu_2 = NULL;
 	PurpleMenuAction *action = NULL;
 	PurpleBlistNode *group;
-	PurpleMenuAction *action_submenu = NULL, *action_submenu_1 = NULL, *action_submenu_2 = NULL; /* poopy. you can actually just use the 'action' variable instead of creating a new one */
+	PurpleMenuAction *action_submenu = NULL, *action_submenu_1 = NULL, *action_submenu_2 = NULL; 
 	const gchar *group_name = NULL;
 
 	if (!PURPLE_IS_BUDDY(node))

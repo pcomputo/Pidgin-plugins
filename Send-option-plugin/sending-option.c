@@ -16,6 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  */
+
 #include "internal.h"
 #include "version.h"
 
@@ -41,20 +42,20 @@ send_online_buddy_cb (PurpleBlistNode *cnode, gpointer data)
 	gchar *group_info;
 
    const gchar *groupname = purple_group_get_name(data);
-	purple_debug_info("sending_maniac", "The group selected is: %s", groupname);
+	purple_debug_info("send-option", "The group selected is: %s", groupname);
 
    buddy = (PurpleBuddy *)cnode;
-	purple_debug_info("sending_maniac", "Inside send_online_buddy_cb");
+	purple_debug_info("send-option", "Inside send_online_buddy_cb");
 	receiver = purple_buddy_get_name(buddy); 
-	purple_debug_info("sending_maniac", "Receiver name: %s", receiver);
+	purple_debug_info("send-option", "Receiver name: %s", receiver);
 	account = purple_buddy_get_account(buddy);
 	gc = purple_account_get_connection(account);
 
 	im = purple_conversations_find_im_with_account(receiver, purple_connection_get_account(gc));
        if(im)
-	      purple_debug_info("sending_maniac", "Yayy, IM!");
+	      purple_debug_info("send-option", "Yayy, IM!");
        else
-         purple_debug_info("sending_maniac", "Boo! No IM :(");
+         purple_debug_info("send-option", "Boo! No IM :(");
 	if (im == NULL)
       im = purple_im_conversation_new(purple_connection_get_account(gc), receiver);
 
@@ -74,7 +75,7 @@ send_online_buddy_cb (PurpleBlistNode *cnode, gpointer data)
 
    gname = purple_group_get_name(g);
 	total = purple_counting_node_get_online_count(PURPLE_COUNTING_NODE(g));;
-   purple_debug_info("sending_maniac", "%s (%d): \n",gname, total);
+   purple_debug_info("send-option", "%s (%d): \n",gname, total);
    group_info = g_strdup_printf("%s (%d):\n",gname, total);
 	buddylist = g_strconcat(group_info, "\t","\t", NULL);
 			 
@@ -121,7 +122,7 @@ send_online_buddy_cb (PurpleBlistNode *cnode, gpointer data)
           }
 	    }
 	}
-   purple_debug_info("sending_maniac", "The counter is (%d): \n",counter);
+   purple_debug_info("send-option", "The counter is (%d): \n",counter);
    
    purple_notify_message (plugin, PURPLE_NOTIFY_MSG_INFO,
 		    "Send online buddies", "Successfully sent your online buddies :)", NULL, NULL,
@@ -145,17 +146,17 @@ send_group_list_cb (PurpleBlistNode *cnode, gpointer data)
 	int count = 0, counter = 0, flag = 0, total = 0;
 
 	buddy = (PurpleBuddy *)cnode;
-	purple_debug_info("sending_maniac", "Inside send_group_list_cb");
+	purple_debug_info("send-option", "Inside send_group_list_cb");
 	receiver = purple_buddy_get_name(buddy); 
-	purple_debug_info("sending_maniac", "Receiver name: %s", receiver);
+	purple_debug_info("send-option", "Receiver name: %s", receiver);
 	account = purple_buddy_get_account(buddy);
 	gc = purple_account_get_connection(account);
 
 	im = purple_conversations_find_im_with_account(receiver, purple_connection_get_account(gc));
        if(im)
-	      purple_debug_info("sending_maniac", "Yayy, IM!");
+	      purple_debug_info("send-option", "Yayy, IM!");
        else
-         purple_debug_info("sending_maniac", "Boo! No IM :(");
+         purple_debug_info("send-option", "Boo! No IM :(");
 	if (im == NULL)
       im = purple_im_conversation_new(purple_connection_get_account(gc), receiver);
 
@@ -177,7 +178,7 @@ send_group_list_cb (PurpleBlistNode *cnode, gpointer data)
 	    if (PURPLE_IS_GROUP(gnode)) {
          g = (PurpleGroup*)gnode;
 			gname = purple_group_get_name(g);
-			purple_debug_info("sending_maniac", " Group checked: %s \n",gname);
+			purple_debug_info("send-option", " Group checked: %s \n",gname);
 			++count;
 			++counter;
 
@@ -234,20 +235,20 @@ send_buddy_list_cb (PurpleBlistNode *cnode, gpointer data)
 	gchar *group_info;
 
    const gchar *groupname = purple_group_get_name(data);
-	purple_debug_info("sending_maniac", "The group selected is: %s", groupname);
+	purple_debug_info("send-option", "The group selected is: %s", groupname);
 
    buddy = (PurpleBuddy *)cnode;
-	purple_debug_info("sending_maniac", "Isnide send_buddy_list_cb");
+	purple_debug_info("send-option", "Isnide send_buddy_list_cb");
 	receiver = purple_buddy_get_name(buddy); 
-	purple_debug_info("sending_maniac", "Receiver name: %s", receiver);
+	purple_debug_info("send-option", "Receiver name: %s", receiver);
 	account = purple_buddy_get_account(buddy);
 	gc = purple_account_get_connection(account);
 
 	im = purple_conversations_find_im_with_account(receiver, purple_connection_get_account(gc));
        if(im)
-	      purple_debug_info("sending_maniac", "Yayy, IM!");
+	      purple_debug_info("send-option", "Yayy, IM!");
        else
-         purple_debug_info("sending_maniac", "Boo! No IM :(");
+         purple_debug_info("send-option", "Boo! No IM :(");
 	if (im == NULL)
       im = purple_im_conversation_new(purple_connection_get_account(gc), receiver);
 
@@ -267,7 +268,7 @@ send_buddy_list_cb (PurpleBlistNode *cnode, gpointer data)
 
    gname = purple_group_get_name(g);
 	total = purple_counting_node_get_current_size(PURPLE_COUNTING_NODE(g));
-   purple_debug_info("sending_maniac", "%s (%d): \n",gname, total);
+   purple_debug_info("send-option", "%s (%d): \n",gname, total);
    group_info = g_strdup_printf("%s (%d):\n",gname, total);
 	buddylist = g_strconcat(group_info, "\t","\t", NULL);
 			 
@@ -314,7 +315,7 @@ send_buddy_list_cb (PurpleBlistNode *cnode, gpointer data)
           }
 	    }
 	}
-   purple_debug_info("sending_maniac", "The counter is (%d): \n",counter);
+   purple_debug_info("send-option", "The counter is (%d): \n",counter);
    
    purple_notify_message (plugin, PURPLE_NOTIFY_MSG_INFO,
 		    "Send buddies", "Successfully sent your buddy list :)", NULL, NULL,
@@ -385,6 +386,7 @@ plugin_load (PurplePlugin * plugin)
 	return TRUE;
 }
 
+
 static PurplePluginInfo info = {
 	PURPLE_PLUGIN_MAGIC,
 	PURPLE_MAJOR_VERSION,
@@ -395,13 +397,13 @@ static PurplePluginInfo info = {
 	NULL,
 	PURPLE_PRIORITY_DEFAULT,
 
-	"core-send_option",
+	"core-send-option",
 	"Send Chat Entities!",
 	DISPLAY_VERSION,
 
 	"Sending Maniac",
-	"This helps you send varoius chat entities.",
-	"Pooja Ahuja <ahuja.pooja22@gmail.com>",        /*author */
+	"This helps you send various chat entities.",
+	"Pooja Ahuja <ahuja.pooja22@gmail.com>",        /* author */
 	"http://ahujapooja.com",
 
 

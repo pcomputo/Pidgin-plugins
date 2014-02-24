@@ -1,0 +1,7 @@
+This plugin will allow you to send 
+1. Group list
+2. Buddy list
+3. Online buddy list 
+to the buddy selected.
+
+Right click on the buddy name who you wish to send the above information to and click search. Choose the approporate option.

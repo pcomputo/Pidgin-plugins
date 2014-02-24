@@ -397,8 +397,8 @@ static PurplePluginInfo info = {
 	NULL,
 	PURPLE_PRIORITY_DEFAULT,
 
-	"core-hello_world",
-	"Sending maniac!",
+	"core-send_option",
+	"Send Chat Entities!",
 	DISPLAY_VERSION,
 
 	"Sending Maniac",

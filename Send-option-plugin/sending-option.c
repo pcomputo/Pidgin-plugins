@@ -165,7 +165,7 @@ send_group_list_cb (PurpleBlistNode *cnode, gpointer data)
    {
 	    if (PURPLE_IS_GROUP(gnode)) {
           ++total;
-			 grouptotal = g_strdup_printf("Total Groups (%d):\n", total);
+			 grouptotal = g_strdup_printf("Groups (%d):\n", total);
 			 grouplist = g_strconcat(grouptotal, gname, ",\t", NULL);
        }
 	}
